@@ -1,0 +1,38 @@
+{
+    "name": "gixx/worstpractice-wordpress-theme",
+    "type": "wordpress-theme",
+    "description": "Custom classic WordPress theme for the Worst Practice Blog.",
+    "keywords": [
+        "WordPress",
+        "Themes"
+    ],
+    "homepage": "https://github.com/Gixx/worstpractice-wordpress-theme",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+          "name": "Gabor Ivan",
+          "email": "navig80@gmail.com",
+          "homepage": "https://gaborivan.de",
+          "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.3"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "wptrt/wpthemereview": "^0.2.1",
+        "php-parallel-lint/php-parallel-lint": "^1.2.0",
+        "wp-cli/i18n-command": "^2.2.5"
+    },
+    "scripts": {
+        "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
+        "make-pot": "wp i18n make-pot . languages/_s.pot"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

@@ -1,0 +1,34 @@
+services:
+  wp-mysql:
+    image: mysql:5.7
+    container_name: wp-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppass
+    volumes:
+      - wp-mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  wp-wordpress:
+    image: wordpress:latest
+    user: www-data
+    container_name: wp-wordpress
+    restart: always
+    depends_on:
+      - wp-mysql
+    environment:
+      WORDPRESS_DB_HOST: wp-mysql:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppass
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+
+volumes:
+  wp-mysql-data:
