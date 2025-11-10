@@ -14,7 +14,7 @@ services:
       - "3306:3306"
 
   wp-wordpress:
-    image: wordpress:latest
+    build: .
     user: www-data
     container_name: wp-wordpress
     restart: always

@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+<?php get_sidebar(); ?>
+<main>
 <h2><?php the_archive_title(); ?></h2>
 <?php
 
@@ -11,5 +13,6 @@ while ( have_posts() ) {
 }
 
 ?>
+</main>
 
 <?php get_footer(); ?>

@@ -1,36 +1,36 @@
 <?php
 
-function activateFeatures(): void {
-	add_theme_support( 'title-tag' );
-	add_theme_support( 'post-thumbnails' );
+require_once(__DIR__ . '/Helper/ShortcodeHelper.php');
+use Worstpractice\Helper\ShortcodeHelper;
+
+add_theme_support('post-thumbnails');
+
+// Short-calling for do_shortcode :)
+function sc(string $shortcode = ''): string {
+    return ShortcodeHelper::doShortcode($shortcode);
 }
 
-function enqueueAssets(): void {
-    // https://github.com/WordPress/gutenberg/issues/36834
-    wp_dequeue_style( 'wp-block-library' );
-    wp_dequeue_style( 'wp-block-library-theme' );
+add_shortcode('copy-year', function(): string {
+    return date('Y');
+});
 
-    // https://stackoverflow.com/a/74341697/278272
-    wp_dequeue_style( 'classic-theme-styles' );
+add_shortcode('page-title', function(): string {
+    $title = is_single()
+        ? get_the_title()
+        : strip_tags(get_the_archive_title());
 
-	wp_enqueue_style(
-		handle: 'bundle-style',
-		src: get_stylesheet_directory_uri().'/assets/css/bundle.css',
-		ver:wp_get_theme()->get( 'Version' )
-	);
+    return ($title === 'Archives' ? 'Home' : $title) . ' - ' . sc('[site-title]');
+});
 
-    wp_enqueue_script(
-        handle: 'bundle-script',
-        src: get_stylesheet_directory_uri().'/assets/js/bundle.js',
-        ver: wp_get_theme()->get( 'Version' ),
-        args: [ 'in_footer' => true ]
-    );
-}
+add_shortcode('page-url', function(): string {
+    global $wp;
+    return home_url( $wp->request );
+});
 
-// Cleanup global styles added by WordPress core.
-remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+add_shortcode('assets-url', function(): string {
+    return get_stylesheet_directory_uri().'/assets';
+});
 
-add_action( 'wp_enqueue_scripts', 'enqueueAssets' );
-add_action( 'after_setup_theme', 'activateFeatures' );
+add_shortcode('wordpress-version', function(): string {
+    return get_bloginfo('version');
+});

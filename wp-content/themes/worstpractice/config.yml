@@ -1,0 +1,24 @@
+site:
+  title: 'Worst Practice Blog'
+  url: 'https://worstpractice.gaborivan.de'
+  lang: 'en'
+  locale: 'en_US'
+  timezone: 'Europe/Berlin'
+  application: 'Worst Practice Blog'
+  description: 'A blog about best/worst practices in software development.'
+
+author:
+  name: 'Gábor Iván'
+  slug: 'gabor.ivan'
+  avatar: 'navig80@gmail.com'
+  introduction: 'Hi, my name is Gábor Iván. I am an old-school Full stack developer, which means I deal with Backend (PHP), Frontend (HTML, CSS, JS), and a little bit of Web-design.'
+  social:
+    - facebook:
+        appid: '2178081495757871'
+        username: 'ivan.gabor.80'
+    - twitter:
+        username: 'gaborivan1980'
+    - github:
+        username: 'Gixx'
+    - linkedin:
+        username: 'gaborivan'
