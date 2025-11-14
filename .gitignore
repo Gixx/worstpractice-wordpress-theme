@@ -25,5 +25,5 @@
 /dist/js/*
 !/dist/js/.gitkeep
 /dist/bundle.style.js
-/webpack.config.d.ts
-/webpack.config.d.ts.map
+*.d.ts
+*.d.ts.map
