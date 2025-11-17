@@ -28,27 +28,28 @@ export class LazyLoadImageElement<T extends HTMLImageElement> implements ICompon
         return this.element;
     }
 
-    public async loadImage(): Promise<void>
+    public loadImage(): void
     {
         if (!this.element.hasAttribute('data-src')) {
+            this.logger.actionFailed('The element must have "data-src" attribute.');
             return;
         }
 
-        const imageSource: string | undefined = this.element.dataset?.src;
-        if (typeof imageSource !== 'string' || imageSource.trim() === '') {
+        const imageSource: string = this.element.dataset.src || '';
+
+        if (imageSource.trim() === '') {
             this.logger.actionFailed('Invalid image source', String(imageSource));
             return;
         }
 
-        try {
-            await this.preloadImage(imageSource);
+        this.preloadImage(imageSource).then((): void => {
             this.element.src = imageSource;
             this.element.loading = 'lazy';
             this.element.removeAttribute('data-src');
             this.logger.actionSuccess('A Lazy Load Image element loaded', this.element.id);
-        } catch {
-            this.logger.actionFailed('An image resource is not found', imageSource);
-        }
+        }).catch((event: Event): void => {
+            this.logger.actionFailed('An image resource is not found', event);
+        });
     }
 
     private preloadImage(src: string): Promise<void>

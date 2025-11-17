@@ -45,7 +45,7 @@ const config: webpack.Configuration[] = [
                     test: /\.s[ca]ss$/,
                     use: [
                         MiniCssExtractPlugin.loader,
-                        {loader: 'css-loader', options: {importLoaders: 2, sourceMap: false}},
+                        {loader: 'css-loader', options: {url: false, importLoaders: 2, sourceMap: false}},
                         {loader: 'postcss-loader', options: {sourceMap: true}},
                         {loader: 'sass-loader', options: {sourceMap: true}},
                     ]

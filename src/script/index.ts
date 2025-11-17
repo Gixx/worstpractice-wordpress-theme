@@ -9,6 +9,7 @@ import { SmoothScroll } from './Service/SmoothScroll';
 import { BarChart } from "./Components/BarChart";
 import { Collapsible } from "./Components/Collapsible";
 import {DialogWindow} from "./Components/DialogWindow";
+import { LazyLoadImage } from "./Components/LazyLoadImage";
 
 const PRIVACY_ACCEPT_STORAGE_NAME = 'privacy_Accept_20251119';
 
@@ -61,6 +62,11 @@ document.addEventListener('DOMContentLoaded', function () {
     dialogWindowHandler = new DialogWindow(
         utility,
         new Logger('Dialog Window', 'Turquoise')
+    );
+
+    new LazyLoadImage(
+        utility,
+        new Logger('Lazy Load Image', 'PowderBlue')
     );
 });
 

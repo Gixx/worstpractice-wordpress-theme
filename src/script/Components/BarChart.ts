@@ -4,7 +4,8 @@ import { BarChartElement } from './Elements/BarChartElement';
 import type { IComponent } from './Icomponent';
 import type { IComponentElement } from './Elements/IComponentElement';
 
-export class BarChart implements IComponent<HTMLDivElement> {
+export class BarChart implements IComponent<HTMLDivElement>
+{
     private readonly logger: Logger;
     private readonly utility: Utility;
     private readonly chartStyles: Record<string, Record<string, string>>;
@@ -24,11 +25,12 @@ export class BarChart implements IComponent<HTMLDivElement> {
         this.logger.seekComponentElements();
 
         const chartWrappers = document.querySelectorAll('.BarChart .grid');
+
         if (chartWrappers.length ===0) {
             this.logger.componentElementsNotFound();
             return;
-
         }
+
         const elementLogTitle = this.logger.componentName + ' Element';
         const elementLogColor = this.utility.endarkenColor(this.logger.colorId);
 
