@@ -3,14 +3,16 @@ import type { IComponentElement } from './IComponentElement';
 
 type ChartStyles = Record<string, { paddingBottom?: string; height?: string }>;
 
-export class BarChartElement<T extends HTMLElement = HTMLDivElement> implements IComponentElement<T> {
+export class BarChartElement<T extends HTMLElement = HTMLDivElement> implements IComponentElement<T>
+{
     private readonly logger: Logger;
     private readonly element: T;
     private readonly chartStyles: ChartStyles;
     private readonly currentYear: number;
     private readonly currentQuarter: number;
 
-    constructor(element: T, chartStyles: ChartStyles, loggerInstance: Logger) {
+    constructor(element: T, chartStyles: ChartStyles, loggerInstance: Logger)
+    {
         this.element = element;
         this.chartStyles = chartStyles;
         this.logger = loggerInstance;
@@ -21,7 +23,8 @@ export class BarChartElement<T extends HTMLElement = HTMLDivElement> implements 
     }
 
     // Initialize and render the chart grid and bars
-    private init(): void {
+    private init(): void
+    {
         const chartDataset = this.element.querySelector('dl.chart-dataset') as HTMLDListElement | null;
         if (!chartDataset) {
             this.logger.warn('Chart dataset not found for element', this.element.id);
@@ -86,7 +89,8 @@ export class BarChartElement<T extends HTMLElement = HTMLDivElement> implements 
     }
 
     // Counts the offset from the date info
-    private getOffset(dateInfo: string, rangeFrom: number): number {
+    private getOffset(dateInfo: string, rangeFrom: number): number
+    {
         let startOffset = this.chartStyles['.BarChart .grid']?.paddingBottom ?? '0px';
 
         if (startOffset.indexOf('px') !== -1) {
@@ -122,15 +126,18 @@ export class BarChartElement<T extends HTMLElement = HTMLDivElement> implements 
     }
 
     // Public API (IComponentElement)
-    public getId(): string | number {
+    public getId(): string | number
+    {
         return this.element.id;
     }
 
-    public getName(): string {
+    public getName(): string
+    {
         return this.element.id;
     }
 
-    public getHTMLElement(): T {
+    public getHTMLElement(): T
+    {
         return this.element as T;
     }
 }

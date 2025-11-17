@@ -8,8 +8,9 @@ import { SmoothScroll } from './Service/SmoothScroll';
 
 import { BarChart } from "./Components/BarChart";
 import { Collapsible } from "./Components/Collapsible";
-import {DialogWindow} from "./Components/DialogWindow";
+import { DialogWindow } from "./Components/DialogWindow";
 import { LazyLoadImage } from "./Components/LazyLoadImage";
+import  {FeatureToggleSwitch } from "./Components/FeatureToggleSwitch";
 
 const PRIVACY_ACCEPT_STORAGE_NAME = 'privacy_Accept_20251119';
 
@@ -19,10 +20,12 @@ declare global {
     interface Window { openDialog: any; }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function ()
+{
     const utility = new Utility(
         new Logger('Utility', 'Salmon')
     );
+
     const http = new Http(
         utility,
         new Logger('Http', 'GreenYellow')
@@ -67,6 +70,12 @@ document.addEventListener('DOMContentLoaded', function () {
     new LazyLoadImage(
         utility,
         new Logger('Lazy Load Image', 'PowderBlue')
+    );
+
+    new FeatureToggleSwitch(
+        utility,
+        new Logger('Feature Toggle Switch', 'Orange'),
+        dataStorage
     );
 });
 

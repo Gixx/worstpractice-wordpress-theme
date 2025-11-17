@@ -12,7 +12,8 @@ export class BarChart implements IComponent<HTMLDivElement>
     private readonly elements: IComponentElement<HTMLDivElement>[];
     private idCounter: number = 1;
 
-    constructor(utilityInstance: Utility, loggerInstance: Logger) {
+    constructor(utilityInstance: Utility, loggerInstance: Logger)
+    {
         this.utility = utilityInstance;
         this.logger = loggerInstance;
         this.chartStyles = this.utility.readStylesheetsByClassName('BarChart');
@@ -20,7 +21,8 @@ export class BarChart implements IComponent<HTMLDivElement>
         this.init()
     }
 
-    private init(): void {
+    private init(): void
+    {
         this.logger.componentLoaded();
         this.logger.seekComponentElements();
 

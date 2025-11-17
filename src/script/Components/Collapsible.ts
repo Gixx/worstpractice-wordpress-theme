@@ -50,6 +50,8 @@ export class Collapsible implements IComponent<HTMLButtonElement>
                 )
             );
         });
+
+        this.utility.triggerEvent(document, 'Component.Collapsible.Ready', null,  1);
     }
 
     public getElements(): IComponentElement<HTMLButtonElement>[]

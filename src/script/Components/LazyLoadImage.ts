@@ -50,7 +50,7 @@ export class LazyLoadImage implements IComponent<HTMLImageElement>
             }
 
             if (!node.hasAttribute('id')) {
-                node.setAttribute('id', `BarChart-${this.idCounter++}`);
+                node.setAttribute('id', `LazyLoadImage-${this.idCounter++}`);
             }
 
             this.elements.push(
@@ -61,6 +61,8 @@ export class LazyLoadImage implements IComponent<HTMLImageElement>
             );
             imageObserver.observe(node);
         });
+
+        this.utility.triggerEvent(document, 'Component.LazyLoadImage.Ready', null,  1);
     }
 
     public getElements(): IComponentElement<HTMLImageElement>[] {

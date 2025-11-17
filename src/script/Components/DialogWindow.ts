@@ -51,6 +51,8 @@ export class DialogWindow implements IComponent<HTMLDialogElement>
                 )
             );
         });
+
+        this.utility.triggerEvent(document, 'Component.DialogWindow.Ready', null,  1);
     }
 
     public getElements(): IComponentElement<HTMLDialogElement>[]
