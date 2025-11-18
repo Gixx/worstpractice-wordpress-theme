@@ -15,6 +15,7 @@
                         <?php foreach ($tags as $tag) : ?>
                         <a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo esc_html($tag->name); ?></a><?php echo ($tag !== end($tags)) ? ', ' : ''; ?>
                         <?php endforeach; ?>
+
                     </p>
                     <?php endif; ?>
                 </div>
