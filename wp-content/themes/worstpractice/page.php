@@ -8,12 +8,12 @@
     ?>
     <section class="c-content__post">
             <article class="a-article">
-                <hgroup class="a-header">
+                <header class="a-header">
                     <h2 class="a-header__title"><?php the_title(); ?></h2>
                     <?php if($lastUpdated): ?>
                     <h3 class="a-header__update"><?=end($lastUpdated)?></h3>
                     <?php endif; ?>
-                </hgroup>
+                </header>
                 <div class="a-body">
                 <?php the_content(); ?>
                 </div>
