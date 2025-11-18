@@ -10,7 +10,7 @@ export class CookieStorage implements IRepository {
 
     constructor(utilityInstance: Utility, loggerInstance: Logger) {
         this.utility = utilityInstance;
-        this.logger = loggerInstance
+        this.logger = loggerInstance;
         this.logger.repositoryLoaded();
         this.initialize();
     }

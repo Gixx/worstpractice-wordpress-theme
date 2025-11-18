@@ -91,7 +91,7 @@ export class CollapsibleElement<T extends HTMLElement = HTMLButtonElement> imple
             return;
         }
 
-        const rawContent = target.parentNode?.querySelector('.Collapsible__content');;
+        const rawContent = target.parentNode?.querySelector('.Collapsible__content');
 
         if (!rawContent || !(rawContent instanceof HTMLDivElement)) {
             this.logger.warn('No content element found for ' + target.id);

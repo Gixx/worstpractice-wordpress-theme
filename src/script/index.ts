@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function ()
         new Logger('Utility', 'Salmon')
     );
 
-    const http = new Http(
+    new Http(
         utility,
         new Logger('Http', 'GreenYellow')
     );
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function ()
     new Collapsible(
         utility,
         new Logger('Collapsible', 'PaleGoldenRod')
-    )
+    );
 
     new BarChart(
         utility,

@@ -3,7 +3,6 @@ import {Utility} from "../Service/Utility";
 import { LazyLoadImageElement } from './Elements/LazyLoadImageElement';
 import type { IComponent } from './Icomponent';
 import type { IComponentElement } from './Elements/IComponentElement';
-import {DialogWindowElement} from "./Elements/DialogWindowElement";
 
 export class LazyLoadImage implements IComponent<HTMLImageElement>
 {

@@ -19,7 +19,7 @@ export class FeatureToggleSwitch implements IComponent<HTMLDivElement>
         this.logger = loggerInstance;
         this.repository = repositoryInstance;
         this.elements = [];
-        this.init()
+        this.init();
     }
 
     private init(): void
