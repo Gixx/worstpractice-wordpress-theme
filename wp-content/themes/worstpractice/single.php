@@ -13,7 +13,7 @@
                     <?php if ($tags) : ?>
                     <p class="a-meta__tags">Posted with the following tags:
                         <?php foreach ($tags as $tag) : ?>
-                        <a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo esc_html($tag->name); ?></a><?php echo ($tag !== end($tags)) ? ', ' : ''; ?>
+                        <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"><?php echo esc_html($tag->name); ?></a><?php echo ($tag !== end($tags)) ? ', ' : ''; ?>
                         <?php endforeach; ?>
 
                     </p>
