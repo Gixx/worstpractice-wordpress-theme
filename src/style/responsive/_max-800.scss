@@ -1,0 +1,13 @@
+@use "../sizes";
+
+@media only screen and (max-width: 800px) {
+  .l-article {
+    flex-basis: 48.5%;
+
+    .l-header__title {
+      font-size: sizes.$size-header-normal;
+      line-height: sizes.$size-header-normal-line;
+      max-width: 34rem;
+    }
+  }
+}

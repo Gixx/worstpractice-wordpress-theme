@@ -1,0 +1,209 @@
+@use "../colors";
+@use "../sizes";
+@use "../fonts";
+
+.BarChart {
+  border: 0.1rem solid gray;
+  background-color: colors.$white;
+
+  .title {
+    font-family: Roboto, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .grid {
+    position: relative;
+    display: inline-block;
+    width: calc(100% - 9rem);
+    padding: 1rem 1rem 11rem 1rem;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+
+  .gridRow {
+    width: 48rem;
+    height: 0.5rem;
+    border-bottom: 0.1rem solid colors.$light-grey;
+    margin-left: 5.5rem;
+
+    span {
+      display: inline-block;
+      width: 6rem;
+      text-align: right;
+      color: lightgray;
+      line-height: 1.6rem;
+      font-size: 1.3rem;
+      font-family: Roboto, sans-serif;
+      margin-left: -4.5rem;
+      padding-right: 2rem;
+      background: colors.$white;
+      top: 0.5rem;
+    }
+  }
+
+  .gridRow.year {
+    width: 49.5rem;
+    margin-left: 4rem;
+  }
+
+  .gridRow.thisQuarter {
+    border-bottom-color: lightcoral;
+  }
+
+  .labels {
+    display: block;
+    transform: rotate(-90deg) translateX(-11rem) translateY(-3rem);
+    transform-origin: top left;
+    width: 15rem;
+    height: 0;
+    overflow: visible;
+    text-align: right;
+
+    div {
+      transform: rotate(45deg);
+      font-family: Roboto, sans-serif;
+      font-size: 1.1rem;
+      line-height: 2rem;
+      height: 5rem;
+      transform-origin: top left;
+    }
+  }
+
+  .skill {
+    position: absolute;
+    width: 1rem;
+    z-index: 5;
+    background: colors.$light-grey;
+  }
+
+  .skill.col1 {
+    left: 8rem;
+  }
+
+  .skill.col2 {
+    left: 13rem;
+  }
+
+  .skill.col3 {
+    left: 18rem;
+  }
+
+  .skill.col4 {
+    left: 23rem;
+  }
+
+  .skill.col5 {
+    left: 28rem;
+  }
+
+  .skill.col6 {
+    left: 33rem;
+  }
+
+  .skill.col7 {
+    left: 38rem;
+  }
+
+  .skill.col8 {
+    left: 43rem;
+  }
+
+  .skill.col9 {
+    left: 48rem;
+  }
+
+  .skill.beginner-expert {
+    background: linear-gradient(to bottom, colors.$chart-expert 0%, colors.$chart-senior 25%, colors.$chart-experienced 50%, colors.$chart-junior 75%, colors.$chart-beginner 100%);
+  }
+
+  .skill.beginner-senior {
+    background: linear-gradient(to bottom, colors.$chart-senior 0%, colors.$chart-experienced 33%, colors.$chart-junior 66%, colors.$chart-beginner 100%);
+  }
+
+  .skill.beginner-senior-fade {
+    background: linear-gradient(to bottom, colors.$chart-fadeout 0%, colors.$chart-senior 5%, colors.$chart-experienced 40%, colors.$chart-junior 70%, colors.$chart-beginner 100%);
+  }
+
+  .skill.beginner-experienced {
+    background: linear-gradient(to bottom, colors.$chart-experienced 0%, colors.$chart-junior 50%, colors.$chart-beginner 100%);
+  }
+
+  .skill.beginner-experienced-fade {
+    background: linear-gradient(to bottom, colors.$chart-fadeout 0%, colors.$chart-experienced 5%, colors.$chart-junior 55%, colors.$chart-beginner 100%);
+  }
+
+  .skill.beginner-junior {
+    background: linear-gradient(to bottom, colors.$chart-junior 0%, colors.$chart-beginner 100%);
+  }
+
+  .skill.beginner-junior-fade {
+    background: linear-gradient(to bottom, colors.$chart-fadeout 0%, colors.$chart-junior 5%, colors.$chart-beginner 100%);
+  }
+
+  .skill.beginner {
+    background: colors.$chart-beginner;
+  }
+
+  .skill.beginner-fade {
+    background: linear-gradient(to bottom, colors.$chart-fadeout 0%, colors.$chart-beginner 85%, colors.$chart-beginner 100%);
+  }
+
+  .legend {
+    width: 8rem;
+    padding-top: 5rem;
+    margin: 0;
+
+    span {
+      font-size: 1rem;
+      line-height: 1.5rem;
+
+      &::before {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.legend {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0;
+  margin: 0 2rem 2rem 2rem;
+
+  span {
+    display: block;
+    font-family: fonts.$font-sans;
+    margin-bottom: 0.5rem;
+
+    &::before {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      margin-right: 1rem;
+      content: '';
+      vertical-align: middle;
+    }
+  }
+
+  span.beginner::before {
+    background-color: colors.$chart-beginner;
+  }
+
+  span.junior::before {
+    background-color: colors.$chart-junior;
+  }
+
+  span.experienced::before {
+    background-color: colors.$chart-experienced;
+  }
+
+  span.senior::before {
+    background-color: colors.$chart-senior;
+  }
+
+  span.expert::before {
+    background-color: colors.$chart-expert;
+  }
+}

@@ -4,6 +4,7 @@ require_once(__DIR__ . '/Helper/ShortcodeHelper.php');
 use Worstpractice\Helper\ShortcodeHelper;
 
 add_theme_support('post-thumbnails');
+add_theme_support('menus');
 
 // Short-calling for do_shortcode :)
 function sc(string $shortcode = ''): string {
@@ -33,4 +34,15 @@ add_shortcode('assets-url', function(): string {
 
 add_shortcode('wordpress-version', function(): string {
     return get_bloginfo('version');
+});
+
+add_action( 'init', function() {
+    register_nav_menus(
+        array(
+            'home' => __( 'Home' ),
+            'categories' => __( 'Categories'),
+            'tags' => __('Tags'),
+            'pages' => __('Pages')
+        )
+    );
 });

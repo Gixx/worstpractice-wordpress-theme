@@ -1,0 +1,13 @@
+@use "../colors";
+@use "../sizes";
+
+.f-footer {
+
+}
+
+.f-footer__copyright {
+  width: sizes.$desktop-content-width;
+  margin: 0.5rem auto;
+  color: colors.$worstpractice-tanned-light;
+  text-align: center;
+}

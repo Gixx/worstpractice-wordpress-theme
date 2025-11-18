@@ -1,0 +1,34 @@
+@media only screen and (max-width: 1023px) {
+  .h-header {
+    width: 100vw;
+    padding: 2rem 6rem 0 6rem;
+    height: auto;
+    z-index: 8;
+    pointer-events: none;
+  }
+
+  .h-header__title {
+    perspective: none;
+
+    a {
+      width: 70%;
+      padding-top: 15%;
+      top: 10%;
+      left: 13%;
+      transform: rotate(-8deg);
+    }
+  }
+
+  .codeOfTheDay {
+    opacity: 0;
+
+    * {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .f-footer__copyright {
+    width: 100%;
+  }
+}

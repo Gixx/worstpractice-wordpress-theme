@@ -1,0 +1,189 @@
+@use "../colors";
+@use "../sizes";
+@use "../fonts";
+//@import "../rouge-themes/gruvbox";
+
+.codeOfTheDay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  pointer-events: none;
+  transition: opacity 500ms;
+
+  pre.highlight {
+    background-color: colors.$transparent;
+    font-size: sizes.$size-sourcecode;
+    line-height: sizes.$size-sourcecode-line;
+  }
+
+  pre.highlight::before {
+    content: none;
+  }
+}
+
+.codeOfTheDay__toggle {
+  pointer-events: all;
+}
+
+.codeOfTheDay__toggle,
+.codeOfTheDay__content {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 50vw;
+  padding: 0.4rem;
+  margin: 0 0 0 5rem;
+  cursor: pointer;
+  opacity: 0;
+  width: 55rem;
+  height: 48rem;
+  transform: perspective(300rem) matrix(1.1, -0.02, -0.18, 1, 0, 0) translateX(-16.5rem) translateY(2.8rem) scale(0.28);
+  border-radius: 1rem;
+}
+
+.codeOfTheDay__content {
+  z-index: 9;
+  cursor: default;
+  opacity: 1;
+  background-color: colors.$transparent;
+  transition: background-color 500ms ease-in-out 200ms, transform 500ms ease-in-out, top 500ms ease-in-out;
+
+  .highlighter-rouge {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    .rouge-table {
+      display: block;
+      width: 100%;
+
+      tbody {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+      tr {
+        display: flex;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+    }
+
+    .rouge-gutter {
+      display: block;
+      width: 3.5rem;
+      text-align: right;
+      white-space: nowrap;
+      padding-right: 1rem;
+      border-right: 0.2rem solid colors.$code-gutter-border;
+      position: sticky;
+      z-index: 2;
+      left: 0;
+
+      .lineno {
+        width: 2.5rem;
+        white-space: pre;
+      }
+    }
+
+    .rouge-code {
+      display: block;
+      padding: 0 1rem;
+      z-index: 1;
+      white-space: nowrap;
+
+      pre {
+        white-space: pre;
+      }
+    }
+  }
+}
+
+.codeOfTheDay__content::before {
+  content: 'WARNING! This is a terrible code. Please never use it!';
+  display: block;
+  position: absolute;
+  padding: 0.2rem;
+  text-align: center;
+  width: 55rem;
+  top: -4rem;
+  left: -0.1rem;
+  background: colors.$code-background;
+  border-radius: 1rem;
+  color: colors.$light-red;
+  opacity: 0;
+  animation: blinker 1s linear infinite;
+  box-shadow: 0 0 1rem 0 colors.$black-75;
+  transition: opacity 500ms ease-in-out 200ms;
+}
+
+.codeOfTheDay__monitor {
+  z-index: 7;
+  position: absolute;
+  top: 15rem;
+  left: 50vw;
+  padding: 0;
+  margin: 0;
+  width: 36.2rem;
+  height: 36.2rem;
+  background-image: url("../img/header-monitor.png");
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.codeOfTheDay__backdrop {
+  z-index: 8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$white-60;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  pointer-events: none;
+}
+
+.codeOfTheDay__toggle:checked {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  margin: 0;
+}
+
+.codeOfTheDay__toggle:checked ~ .codeOfTheDay__content {
+  top: 50vh;
+  left: 50vw;
+  width: 64rem;
+  height: 48rem;
+  transform: perspective(0) matrix(1, 0, 0, 1, 0, 0) translateX(-50%) translateY(-50%) scale(1);
+  transition: background-color 500ms ease-in-out, transform 500ms ease-in-out 200ms, top 500ms ease-in-out 200ms, left 500ms ease-in-out 200ms, width 500ms ease-in-out 200ms;
+  background-color: colors.$code-background;
+  box-shadow: 0 0 1rem 0 colors.$black-75;
+}
+
+@keyframes blinker {
+  50% {
+    color: colors.$worstpractice-tanned-light;
+  }
+}
+
+.codeOfTheDay__toggle:checked ~ .codeOfTheDay__content::before {
+  width: 64rem;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out 200ms, width 500ms ease-in-out 200ms;
+}
+
+.codeOfTheDay__toggle:checked ~ .codeOfTheDay__backdrop {
+  opacity: 1;
+  transition-delay: 200ms;
+}

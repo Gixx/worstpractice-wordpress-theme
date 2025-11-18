@@ -12,7 +12,7 @@
                 <p class="l-header__author">by Gábor Iván</p>
                 <p class="l-header__date">January&nbsp;31, 2023
                 </p>
-                <h3 class="l-header__title"><a href="<?php the_permalink(); ?>>"><?php the_title(); ?></a></h3>
+                <h3 class="l-header__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             </header>
             <p class="l-excerpt">
                 <?php the_excerpt(); ?>
