@@ -1,8 +1,6 @@
 import * as path from 'path'
 import { fileURLToPath } from 'url';
 import * as webpack from 'webpack'
-import {CleanWebpackPlugin} from 'clean-webpack-plugin'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -17,7 +15,7 @@ const config: webpack.Configuration[] = [
         entry: pathSrc + '/script/index.ts',
         output: {
             path: pathTemplateAssets + '/js',
-            filename: 'bundle.js',
+            filename: 'bundle.min.js',
         },
         module: {
             rules: [
@@ -47,7 +45,7 @@ const config: webpack.Configuration[] = [
                     test: /\.s[ca]ss$/,
                     use: [
                         MiniCssExtractPlugin.loader,
-                        {loader: 'css-loader', options: {importLoaders: 2, sourceMap: false}},
+                        {loader: 'css-loader', options: {url: false, importLoaders: 2, sourceMap: false}},
                         {loader: 'postcss-loader', options: {sourceMap: true}},
                         {loader: 'sass-loader', options: {sourceMap: true}},
                     ]
@@ -60,7 +58,7 @@ const config: webpack.Configuration[] = [
         },
         plugins: [
             new MiniCssExtractPlugin({
-                filename: '../wp-content/themes/worstpractice/assets/css/bundle.css'
+                filename: '../wp-content/themes/worstpractice/assets/css/bundle.min.css'
             })
         ]
     }
