@@ -11,7 +11,7 @@
                     <p class="a-meta__date">Posted on {{ postDate }}</p>
                     <p class="a-meta__category">Posted under the <a href="#">{{ page.categoryLabel }}</a> category</p>
                     <p class="a-meta__tags">Posted with the following tags:
-                        <a href="#">HTML</a>, <a href="#">Design</a>,<a href="#">CSS</a>,
+                        <a href="#">HTML</a>, <a href="#">Design</a>, <a href="#">CSS</a>
                     </p>
                 </div>
             </header>
