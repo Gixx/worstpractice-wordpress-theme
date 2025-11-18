@@ -1,0 +1,36 @@
+@use "../sizes";
+
+.h-header {
+  width: sizes.$desktop-content-width;
+  margin: 0 auto;
+  height: 45rem;
+  padding-top: 2rem;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.h-header__title {
+  height: 0 !important;
+  padding-top: 47.8%;
+  overflow: hidden;
+  background-image: url("../img/header-lady-title.png");
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  perspective: 1000px;
+
+  a {
+    display: block;
+    position: absolute;
+    width: 97%;
+    height: 0 !important;
+    overflow: hidden;
+    padding-top: 11%;
+    top: 15%;
+    left: -11%;
+    z-index: 10;
+    transform: rotateY(-44deg);
+    user-select: none;
+    pointer-events: all;
+  }
+}

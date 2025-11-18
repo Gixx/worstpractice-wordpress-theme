@@ -50,19 +50,18 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="#C23F2F">
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:300,300i,400,400i,700,700i">
-        <link rel="stylesheet" href="<?=sc('[assets-url]')?>/css/bundle.css">
+        <link rel="stylesheet" href="<?=sc('[assets-url]')?>/css/tomorrow-night.min.css">
+        <link rel="stylesheet" href="<?=sc('[assets-url]')?>/css/bundle.min.css">
 
         <link rel="https://api.w.org/" href="<?=sc('[site-url]')?>/wp-json/" />
         <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?=sc('[site-url]')?>/xmlrpc.php?rsd" />
 
+        <script type="application/javascript" src="<?=sc('[assets-url]')?>/js/highlight.min.js"></script>
         <script type="application/javascript" src="<?=sc('[assets-url]')?>/js/wpemoji.min.js"></script>
         <script type="application/javascript" src="<?=sc('[assets-url]')?>/js/feature.min.js"></script>
         <script type="application/javascript">
             /* <![CDATA[ */
-            if (!feature.srcset) { window.location.href = '/sorry.html'; }
+            if (!feature.srcset) { window.location.href = '/sorry'; }
             /* ]]> */
         </script>
         <script type="application/javascript" src="<?=sc('[assets-url]')?>/js/bundle.min.js"></script>
@@ -84,9 +83,10 @@
         <header class="h-header">
             <h1 class="h-header__title"><a href="/"><?=sc('[site-title]')?></a></h1>
         </header>
-        <div class="codeOfTheDay">
-            <input class="codeOfTheDay__toggle" type="checkbox">
-            <div class="codeOfTheDay__content"></div>
-            <div class="codeOfTheDay__monitor"></div>
-            <div class="codeOfTheDay__backdrop"></div>
-        </div>
+        <?php
+//        <div class="codeOfTheDay">
+//            <input class="codeOfTheDay__toggle" type="checkbox">
+//            <div class="codeOfTheDay__content"></div>
+//            <div class="codeOfTheDay__monitor"></div>
+//            <div class="codeOfTheDay__backdrop"></div>
+//        </div>

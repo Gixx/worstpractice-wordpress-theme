@@ -1,0 +1,179 @@
+@use "../colors";
+@use "../sizes";
+@use "../fonts";
+
+::selection {
+  background-color: colors.$black;
+  color: colors.$grey;
+}
+
+::-moz-selection {
+  background-color: colors.$black;
+  color: colors.$grey;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  position: relative;
+  font-family: fonts.$font-sans;
+  cursor: default;
+  margin: 0;
+}
+
+html {
+  background-color: colors.$worstpractice-red;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-size: sizes.$size-text-base;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  color: colors.$light-black;
+  background-color: colors.$transparent;
+  font-weight: 400;
+  font-style: normal;
+  font-size: sizes.$size-text-normal;
+  line-height: sizes.$size-text-normal-line;
+  letter-spacing: sizes.$size-letter-spacing-tiny-gap;
+  font-variant-ligatures: no-common-ligatures;
+  font-feature-settings: "kern", "liga" 0, "clig" 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  cursor: pointer !important;
+  color: colors.$light-black;
+  text-decoration: colors.$deep-dark-grey dotted underline;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+a.mailto::after {
+  content: " (worst.practice.blog@gmail.com)";
+}
+
+a[target=_blank]::after {
+  display: inline-block;
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  padding: 0;
+  background-image: url("../img/icons/external-link-symbol.svg");
+  background-size: contain;
+  vertical-align:  super;
+}
+
+abbr {
+  cursor: help;
+}
+
+img {
+  max-width: 100%;
+  margin: 0.5rem 0;
+}
+
+a img {
+  cursor: pointer;
+  vertical-align: top;
+}
+
+p, li {
+  hyphens: auto;
+}
+
+blockquote {
+  font-family: fonts.$font-serif;
+  font-weight: 400;
+  font-style: italic;
+  text-align: justify;
+  padding: 1rem 5rem;
+}
+
+blockquote::before {
+  font-family: fonts.$font-serif;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  display: block;
+  content: "“";
+  color: colors.$light-black;
+  font-weight: 700;
+  font-size: sizes.$size-quote-sign;
+}
+
+blockquote::after {
+  font-family: fonts.$font-serif;
+  position: absolute;
+  bottom: 3rem;
+  right: 2rem;
+  display: block;
+  content: "”";
+  color: colors.$light-black;
+  font-weight: 700;
+  font-size: sizes.$size-quote-sign;
+}
+
+em {
+  font-family: fonts.$font-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+del {
+  font-weight: 300;
+  color: colors.$light-black;
+  text-decoration: line-through solid colors.$dark-grey;
+}
+
+ins {
+  color: colors.$black;
+  text-decoration: underline dashed colors.$dark-grey;
+  font-style: oblique;
+}
+
+strong {
+  font-weight: 700;
+
+  em {
+    font-weight: 700;
+  }
+}
+
+dl {
+  display: block;
+}
+
+dl::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+dt {
+  clear: right;
+  float: left;
+  width: 20rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+dt + dd {
+  margin-top: 1rem;
+}
+
+dd {
+  float: right;
+  width: 49.9rem;
+}

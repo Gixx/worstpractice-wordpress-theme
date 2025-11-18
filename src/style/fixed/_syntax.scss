@@ -1,0 +1,135 @@
+@use "../colors";
+@use "../sizes";
+@use "../fonts";
+
+pre * {
+  font-family: fonts.$font-monospace;
+  letter-spacing: normal;
+}
+
+p code {
+  display: inline-block;
+  font-family: fonts.$font-monospace;
+  background: colors.$worstpractice-tanned;
+  padding: 0 0.5rem;
+  hyphens: none;
+}
+
+pre code {
+  display: block;
+  width: 100%;
+  margin: 0;
+  hyphens: none;
+}
+
+.c-content pre.wp-block-code code {
+  width: 115%;
+  margin-left: -7.5%;
+  font-size: sizes.$size-sourcecode;
+  line-height: sizes.$size-sourcecode-line;
+  border: 0.2rem dashed colors.$dark-grey;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  & > code {
+    max-height: 75vh;
+    overflow: auto;
+    width: 100%;
+  }
+
+  & > code::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  & > code::-webkit-scrollbar-thumb {
+    background-color: colors.$dark-grey-50;
+    border-radius: 0.4rem;
+  }
+
+  & > code::-webkit-scrollbar-thumb:hover {
+    background-color: colors.$dark-grey;
+  }
+
+  & > code::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  & > code::-webkit-scrollbar,
+  & > code::-webkit-scrollbar-track,
+  & > code::-webkit-scrollbar-track-piece,
+  & > code::-webkit-scrollbar-corner {
+    background-color: colors.$transparent;
+  }
+}
+
+pre::before {
+  display: block;
+  color: #9b9b9b;
+  font-weight: 300;
+  font-family: fonts.$font-serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+}
+
+pre.language-php::before {
+  content: 'Source code language: PHP'
+}
+
+pre.language-json::before {
+  content: 'Source code language: JSON'
+}
+
+pre.language-js::before {
+  content: 'Source code language: JavaScript'
+}
+
+pre.language-css::before {
+  content: 'Source code language: CSS'
+}
+
+pre.language-sass::before {
+  content: 'Source code language: SASS'
+}
+
+pre.language-html::before {
+  content: 'Source code language: HTML'
+}
+
+pre.language-typescript::before {
+  content: 'Source code language: Typescript'
+}
+
+pre.language-jsx::before {
+  content: 'Source code language: JSX'
+}
+
+pre.language-tsx::before {
+  content: 'Source code language: TSX'
+}
+
+pre.language-diff::before {
+  content: 'Diff comparision'
+}
+
+pre.language-bash::before {
+  content: 'Bash/ZSH'
+}
+
+pre.language-docker::before {
+  content: 'Dockerfile'
+}
+
+pre.language-yaml::before {
+  content: 'YAML file'
+}
+
+pre.language-markdown::before {
+  content: 'Markdown file'
+}
+
+pre.language-liquid::before {
+  content: 'Liquid template'
+}
+

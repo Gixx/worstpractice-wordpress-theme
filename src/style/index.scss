@@ -1,3 +1,22 @@
-body {
-  background-color: tomato;
-}
+/* normal and large screens (tablet landscape or desktop) */
+//@use "fixed/code-of-the-day";
+@use "fixed/content";
+@use "fixed/defaults";
+//@use "fixed/feature-toggle";
+@use "fixed/footer";
+//@use "fixed/gdpr";
+@use "fixed/header";
+@use "fixed/navigation";
+@use "fixed/syntax";
+
+@use "components/DialogWindow";
+@use "components/BarChart";
+@use "components/Collapsible";
+@use "components/FeatureToggle";
+
+/* small screens (mobile or table portrait) */
+@use "responsive/max-1023";
+@use "responsive/max-900";
+@use "responsive/max-800";
+@use "responsive/max-680";
+@use "responsive/max-490";
