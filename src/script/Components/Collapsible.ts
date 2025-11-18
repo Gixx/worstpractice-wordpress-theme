@@ -16,7 +16,7 @@ export class Collapsible implements IComponent<HTMLButtonElement>
         this.utility = utilityInstance;
         this.logger = loggerInstance;
         this.elements = [];
-        this.init()
+        this.init();
     }
 
     private init(): void
