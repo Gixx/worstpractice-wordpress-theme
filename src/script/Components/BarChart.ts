@@ -18,7 +18,7 @@ export class BarChart implements IComponent<HTMLDivElement>
         this.logger = loggerInstance;
         this.chartStyles = this.utility.readStylesheetsByClassName('BarChart');
         this.elements = [];
-        this.init()
+        this.init();
     }
 
     private init(): void
