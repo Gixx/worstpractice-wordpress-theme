@@ -9,10 +9,14 @@
                 <h2 class="a-header__title"><?php the_title(); ?></h2>
                 <div class="a-header__meta">
                     <p class="a-meta__date">Posted on <?php echo get_the_date(); ?></p>
-                    <p class="a-meta__category">Posted under the <?php $category = get_the_category(); if (!empty($category)) { echo '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . esc_html($category[0]->name) . '</a>'; } ?> category</p>
+                    <p class="a-meta__category">Posted under the <?php $category = get_the_category(); if (!empty($category)) { echo '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . esc_html($category[0]->name) . '</a>'; } ?> category</p><?php $tags = get_the_tags(); ?>
+                    <?php if ($tags) : ?>
                     <p class="a-meta__tags">Posted with the following tags:
-                        <a href="#">HTML</a>, <a href="#">Design</a>, <a href="#">CSS</a>,
+                        <?php foreach ($tags as $tag) : ?>
+                        <a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo esc_html($tag->name); ?></a><?php echo ($tag !== end($tags)) ? ', ' : ''; ?>
+                        <?php endforeach; ?>
                     </p>
+                    <?php endif; ?>
                 </div>
             </header>
             <p class="a-excerpt">
