@@ -24,16 +24,23 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "wptrt/wpthemereview": "^0.2.1",
         "php-parallel-lint/php-parallel-lint": "^1.2.0",
-        "wp-cli/i18n-command": "^2.2.5"
+        "wp-cli/i18n-command": "^2.2.5",
+        "phpstan/phpstan": "^2.1",
+        "szepeviktor/phpstan-wordpress": "^2.0",
+        "phpstan/extension-installer": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.89"
     },
     "scripts": {
         "lint:wpcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
         "lint:php": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor .",
-        "make-pot": "wp i18n make-pot . languages/_s.pot"
+        "make-pot": "wp i18n make-pot . languages/_s.pot",
+        "phpstan": "@php ./vendor/bin/phpstan analyse --memory-limit=2048M",
+        "php-cs-fixer": "@php ./vendor/bin/php-cs-fixer fix wp-content/themes/worstpractice --using-cache=no"
     },
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
         }
     }
 }

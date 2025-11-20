@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php get_sidebar(); ?>
 <main class="c-content">
-<?php while(have_posts()): ?>
+<?php while (have_posts()): ?>
 	<?php the_post(); ?>
     <section class="c-content__article">
         <article class="a-article">
@@ -10,15 +10,15 @@
                 <div class="a-header__meta">
                     <p class="a-meta__date">Posted on <?php echo get_the_date(); ?></p>
                     <?php
-                        $category = get_the_category();
-                        $category_link = '';
-                        if (!empty($category)) {
-                            $category_link = '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . esc_html($category[0]->name) . '</a>';
-                        }
-                    ?>
+                    $category = get_the_category();
+    $category_link = '"Uncategorized"';
+    if (!empty($category)) {
+        $category_link = '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . esc_html($category[0]->name) . '</a>';
+    }
+    ?>
                     <p class="a-meta__category">Posted under the <?php echo $category_link; ?> category</p>
                     <?php $tags = get_the_tags(); ?>
-                    <?php if ($tags) : ?>
+                    <?php if (is_iterable($tags)): ?>
                     <p class="a-meta__tags">Posted with the following tags:
                         <?php foreach ($tags as $tag) : ?>
                         <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>"><?php echo esc_html($tag->name); ?></a><?php echo ($tag !== end($tags)) ? ', ' : ''; ?>
@@ -31,12 +31,12 @@
             <p class="a-excerpt">
                 <?=get_the_excerpt()?>
             </p>
-            <?php if ( has_post_thumbnail() ): ?>
+            <?php if (has_post_thumbnail()): ?>
             <?php
-            $thumbnail_id = get_post_thumbnail_id(get_the_ID());
-            $caption      = wp_get_attachment_caption($thumbnail_id);
-            $url          = wp_get_attachment_url($thumbnail_id);
-            ?>
+            $thumbnail_id = get_post_thumbnail_id(intval(get_the_ID()));
+                $caption      = wp_get_attachment_caption(intval($thumbnail_id));
+                $url          = wp_get_attachment_url(intval($thumbnail_id));
+                ?>
             <figure class="a-illustration">
                 <img class="a-illustration__image" src="<?=sc('[assets-url]')?>/img/post-illustration-placeholder.png" data-src="<?=$url?>" alt="<?=sc('[page-title]')?>">
                 <?php if ($caption) : ?>
@@ -47,12 +47,10 @@
             <div class="a-body">
                 <?php the_content(); ?>
             </div>
-            <div class="FeatureToggle" data-feature="comments" data-label="Engedélyezed a kommenteket?" data-value="on"></div>
-            <div class="FeatureToggle" data-feature="cookies"></div>
-
             <footer class="a-footer">
                 <h3 class="a-footer__title">About the author</h3>
-                <a class="a-footer__avatar" href="#"><?php $user_id = get_the_author_meta('ID'); echo get_avatar($user_id, 120) ?></a>
+                <?php $user_id = get_the_author_meta('ID'); ?>
+                <a class="a-footer__avatar" href="#"><?=get_avatar($user_id, 120) ?></a>
                 <p class="a-footer__author">
                     <?=sc('[author-introduction]')?>
                     <br>

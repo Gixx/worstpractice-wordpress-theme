@@ -2,11 +2,19 @@
 <?php get_sidebar(); ?>
 <main class="c-content">
     <section class="c-content__list --home">
-<?php while(have_posts()): ?>
+<?php while (have_posts()): ?>
     <?php the_post(); ?>
         <article class="l-article">
             <figure class="l-illustration">
-                <a href="<?php the_permalink(); ?>"><img class="l-illustration__image" src="<?=sc('[assets-url]')?>/img/post-illustration-placeholder.png" <?php if(has_post_thumbnail()): ?>data-src="<?php get_the_post_thumbnail(); ?>"<?php endif; ?> alt="<?php the_title(); ?>"></a>
+            <?php if (has_post_thumbnail()) {
+                $thumbnail_id = get_post_thumbnail_id(intval(get_the_ID()));
+                wp_get_attachment_caption(intval($thumbnail_id));
+                $url = wp_get_attachment_url(intval($thumbnail_id));
+            } else {
+                $url = '';
+            } ?>
+
+                <a href="<?php the_permalink(); ?>"><img class="l-illustration__image" src="<?=sc('[assets-url]')?>/img/post-illustration-placeholder.png" data-src="<?=$url;?>" alt="<?php the_title(); ?>"></a>
             </figure>
             <header class="l-header">
                 <p class="l-header__author">by Gábor Iván</p>
