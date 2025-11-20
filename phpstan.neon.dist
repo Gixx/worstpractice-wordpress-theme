@@ -1,0 +1,4 @@
+parameters:
+  level: 7
+  paths:
+    - wp-content/themes/worstpractice

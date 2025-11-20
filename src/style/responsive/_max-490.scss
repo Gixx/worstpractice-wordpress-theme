@@ -150,7 +150,8 @@
     }
   }
 
-  .c-content__tags > .a-article > div {
+  .c-content__tags .a-columns,
+  .c-content__dates .a-columns {
     column-count: 1;
   }
 }

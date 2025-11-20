@@ -6,7 +6,9 @@ class ShortcodeHelper
 {
     private static ?self $instance = null;
 
-    private function __construct(){}
+    private function __construct()
+    {
+    }
 
     public static function doShortcode(string $shortcode): string
     {
@@ -16,7 +18,8 @@ class ShortcodeHelper
         return self::$instance->resolve($shortcode);
     }
 
-    private function resolve(string $shortcode = ''): string {
+    private function resolve(string $shortcode = ''): string
+    {
         $shortcodeTag = $this->getShortcodeTag($shortcode);
 
         if (shortcode_exists($shortcodeTag)) {
@@ -34,7 +37,7 @@ class ShortcodeHelper
     {
         $matches = [];
         preg_match('#^\[(?<shortcode>[^]\s]*)]#', $input, $matches);
-        return $matches['shortcode'];
+        return $matches['shortcode'] ?? $input;
     }
 
     private function getConfigShortcode(string $shortcodeTag, string $input): string
@@ -66,15 +69,17 @@ class ShortcodeHelper
     }
 
     /**
-     * @return array<string, mixed>
+     * @param array<int|string, mixed> $input
+     * @return array<int|string, mixed>
      */
-    private function flattenArray(array $input, string $prefix = '', string $sep = '-'): array {
+    private function flattenArray(array $input, string $prefix = '', string $sep = '-'): array
+    {
         $result = [];
         foreach ($input as $key => $value) {
             // Exclude numeric indexes from the composed key. If the key is numeric and the
             // value is an array, recurse into it keeping the same prefix so children are
             // flattened under the parent key without the numeric segment.
-            if (is_int($key) || (is_string($key) && is_numeric($key))) {
+            if (is_int($key) || is_numeric($key)) {
                 if (is_array($value)) {
                     $result = array_merge($result, $this->flattenArray($value, $prefix, $sep));
                 }
@@ -83,6 +88,7 @@ class ShortcodeHelper
             }
 
             $composedKey = $prefix === '' ? $key : $prefix . $sep . $key;
+
             if (is_array($value)) {
                 $result = array_merge($result, $this->flattenArray($value, $composedKey, $sep));
             } else {

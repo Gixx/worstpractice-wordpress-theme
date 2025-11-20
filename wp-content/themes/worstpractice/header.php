@@ -61,7 +61,7 @@
         <script type="application/javascript" src="<?=sc('[assets-url]')?>/js/feature.min.js"></script>
         <script type="application/javascript">
             /* <![CDATA[ */
-            if (!feature.srcset) { window.location.href = '/sorry'; }
+            if (!feature.srcset && document.URL.lastIndexOf('sorry') === -1) { window.location.href = '/sorry'; }
             /* ]]> */
         </script>
         <script type="application/javascript" src="<?=sc('[assets-url]')?>/js/bundle.min.js"></script>
@@ -84,9 +84,9 @@
             <h1 class="h-header__title"><a href="/"><?=sc('[site-title]')?></a></h1>
         </header>
         <?php
-//        <div class="codeOfTheDay">
-//            <input class="codeOfTheDay__toggle" type="checkbox">
-//            <div class="codeOfTheDay__content"></div>
-//            <div class="codeOfTheDay__monitor"></div>
-//            <div class="codeOfTheDay__backdrop"></div>
-//        </div>
+        //        <div class="codeOfTheDay">
+        //            <input class="codeOfTheDay__toggle" type="checkbox">
+        //            <div class="codeOfTheDay__content"></div>
+        //            <div class="codeOfTheDay__monitor"></div>
+        //            <div class="codeOfTheDay__backdrop"></div>
+        //        </div>
