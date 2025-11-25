@@ -1,6 +1,6 @@
-# Worstpractice Wordpress Theme
+# Worstpractice WordPress Theme
 
-A custom classic Wordpress theme for a personal developer blog. 
+A custom classic WordPress theme for a personal developer blog. 
 
 ## Version 1.0.1
 
@@ -15,4 +15,4 @@ A custom classic Wordpress theme for a personal developer blog.
 
 ## Version 1.0.0
 
-The first stable release of the Worstpractice Wordpress Theme, with some missing function.
+The first stable release of the Worstpractice WordPress Theme, with some missing functions.
