@@ -12,7 +12,6 @@
                 <figure class="l-illustration">
                     <?php if (has_post_thumbnail()) {
                         $thumbnail_id = get_post_thumbnail_id(intval(get_the_ID()));
-                        wp_get_attachment_caption(intval($thumbnail_id));
                         $url = wp_get_attachment_url(intval($thumbnail_id));
                     } else {
                         $url = '';
