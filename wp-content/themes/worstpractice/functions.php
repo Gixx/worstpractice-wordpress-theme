@@ -118,3 +118,7 @@ add_filter('template_include', function ($template) {
 
     return $template;
 });
+
+add_filter('the_title', function (string $title): string {
+    return str_replace('Private: ', '', $title);
+});
