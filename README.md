@@ -15,4 +15,4 @@ A custom classic WordPress theme for a personal developer blog.
 
 ## Version 1.0.0
 
-The first stable release of the Worstpractice WordPress Theme, with some missing function.
+The first stable release of the Worstpractice WordPress Theme, with some missing functionality.
