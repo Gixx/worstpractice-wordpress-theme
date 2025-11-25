@@ -8,7 +8,7 @@
             <header class="a-header">
                 <h2 class="a-header__title"><?php the_title(); ?></h2>
                 <div class="a-header__meta">
-                    <p class="a-meta__date">Posted on <?php echo get_the_date(); ?></p>
+                    <p class="a-meta__date">Posted on <?=get_the_date()?></p>
                     <?php
                     $category = get_the_category();
     $category_link = '"Uncategorized"';
@@ -34,8 +34,8 @@
             <?php if (has_post_thumbnail()): ?>
             <?php
             $thumbnail_id = get_post_thumbnail_id(intval(get_the_ID()));
-                $caption      = wp_get_attachment_caption(intval($thumbnail_id));
-                $url          = wp_get_attachment_url(intval($thumbnail_id));
+                $caption = wp_get_attachment_caption(intval($thumbnail_id));
+                $url = wp_get_attachment_url(intval($thumbnail_id));
                 ?>
             <figure class="a-illustration">
                 <img class="a-illustration__image" src="<?=sc('[assets-url]')?>/img/post-illustration-placeholder.png" data-src="<?=$url?>" alt="<?=sc('[page-title]')?>">
@@ -54,7 +54,7 @@
                 <p class="a-footer__author">
                     <?=sc('[author-introduction]')?>
                     <br>
-                    <a href="">Read the full story</a>
+                    <a href="https://www.gaborivan.de">Read the full story</a>
                 </p>
             </footer>
         </article>

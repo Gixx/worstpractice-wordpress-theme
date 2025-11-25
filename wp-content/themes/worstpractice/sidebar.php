@@ -106,6 +106,7 @@
             </nav>
         <?php endif; ?>
         <nav>
+            <h2 class="m-menu__title">Legal</h2>
             <?php wp_nav_menu([ 'theme_location' => 'pages' ]); ?>
         </nav>
     </div>

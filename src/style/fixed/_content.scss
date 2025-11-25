@@ -85,6 +85,10 @@
     margin: 0;
   }
 
+  &.--private {
+    opacity: 0.5;
+  }
+
   .l-excerpt {
     display: none;
   }

@@ -27,3 +27,4 @@
 /dist/bundle.style.js
 *.d.ts
 *.d.ts.map
+/wp-content/updraft/

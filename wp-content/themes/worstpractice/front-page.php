@@ -4,7 +4,7 @@
     <section class="c-content__list --home">
 <?php while (have_posts()): ?>
     <?php the_post(); ?>
-        <article class="l-article">
+        <article class="l-article <?php if(get_post_status() === 'private'):?>--private<?php endif; ?>">
             <figure class="l-illustration">
             <?php if (has_post_thumbnail()) {
                 $thumbnail_id = get_post_thumbnail_id(intval(get_the_ID()));
@@ -13,13 +13,11 @@
             } else {
                 $url = '';
             } ?>
-
                 <a href="<?php the_permalink(); ?>"><img class="l-illustration__image" src="<?=sc('[assets-url]')?>/img/post-illustration-placeholder.png" data-src="<?=$url;?>" alt="<?php the_title(); ?>"></a>
             </figure>
             <header class="l-header">
-                <p class="l-header__author">by Gábor Iván</p>
-                <p class="l-header__date">January&nbsp;31, 2023
-                </p>
+                <p class="l-header__author">by <?=get_the_author_meta('display_name', get_the_author_meta('ID'));?></p>
+                <p class="l-header__date"><?=get_the_date('F d, Y')?></p>
                 <h3 class="l-header__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             </header>
             <p class="l-excerpt">
